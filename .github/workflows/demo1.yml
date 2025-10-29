@@ -8,6 +8,8 @@ on: #There are other ways of writing 'on' that is event triggers, check in 'Sect
       - 'dev-*'  #dev-new dev-this-is-new
       - 'feat/**' #feat/new feat/new/button 
 
+#Testing skip workflow demo with [skip ci] in the commit message
+
   workflow_dispatch: #another trigger is manual run
   push: #third trigger is push request
     branches:
