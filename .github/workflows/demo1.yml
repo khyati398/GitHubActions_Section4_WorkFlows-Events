@@ -1,9 +1,21 @@
 name: Events Demo 1
 on: #There are other ways of writing 'on' that is event triggers, check in 'Section 4 - Notes'
-  pull_request:
+  pull_request: #trigger is pull_request
     types:
       - opened
-  workflow_dispatch:
+    branches:
+      - main  #main
+      - 'dev-*'  #dev-new dev-this-is-new
+      - 'feat/**' #feat/new feat/new/button 
+
+  workflow_dispatch: #another trigger is manual run
+  push: #third trigger is push request
+    branches:
+      - main #main
+      - 'dev-*'  #dev-new dev-this-is-new
+      - 'feat/**' #feat/new feat/new/button 
+    paths-ignore: #any paths defined in this 
+      - '.github/workflows/*' #Well, adding this path as paths to ignore; defeats the purpose of workflows as workflow will not run, but this is for demo.
 jobs:
   deploy:
     runs-on: ubuntu-latest
